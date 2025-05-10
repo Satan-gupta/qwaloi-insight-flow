@@ -12,59 +12,96 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 
 export function ProductSection() {
   const [activeTab, setActiveTab] = useState("features");
 
   const features = [
     {
-      title: "AI-Powered Interviews",
-      description: "Conduct in-depth qualitative interviews using our advanced AI interviewer that adapts and responds to participant answers."
+      title: "AI-Driven Interview Analysis",
+      description: "Our advanced AI conducts and analyzes qualitative interviews, identifying key themes and sentiments that humans might miss."
     },
     {
-      title: "Real-time Analysis",
-      description: "Watch insights emerge as interviews happen, with immediate thematic analysis and sentiment detection."
+      title: "Real-time Insight Generation",
+      description: "Watch patterns emerge in real-time as our system processes responses, helping you pivot your research direction on the fly."
     },
     {
-      title: "Comprehensive Reporting",
-      description: "Generate beautiful, actionable reports that highlight key findings, patterns, and recommendations."
+      title: "Interactive Visualization",
+      description: "Transform complex qualitative data into intuitive visual representations that make findings accessible to all stakeholders."
     }
   ];
 
   return (
-    <section id="product" className="bg-white dark:bg-black py-24">
-      <div className="container section-padding">
+    <section id="product" className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      {/* Abstract shapes */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-qwalo-blue to-transparent opacity-30"></div>
+      <div className="absolute right-0 top-40 w-96 h-96 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute left-0 bottom-40 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+      
+      <div className="container section-padding relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-block mb-4">
+            <span className="inline-block py-1 px-3 text-sm font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
+              Our Platform
+            </span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Discover Qwalo.ai</h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-qwalo-blue to-qwalo-orange mx-auto mb-8 rounded-full"></div>
+          <div className="h-1 w-20 bg-gradient-to-r from-purple-600 to-qwalo-orange mx-auto mb-8 rounded-full"></div>
           <p className="text-lg text-muted-foreground">
-            Our platform transforms qualitative research from a time-consuming, manual process into an efficient, insightful experience.
+            Our innovative platform transforms qualitative research from an art form into a precise science without losing the human touch.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center mb-16">
-          <div className="lg:col-span-3 animate-fade-in">
-            <div className="bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 rounded-xl aspect-[4/3] overflow-hidden relative shadow-xl border border-gray-200 dark:border-gray-700">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-muted-foreground">Product Screenshot</p>
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-stretch">
+          <div className="lg:col-span-3">
+            <div className="relative h-full">
+              {/* Decorative elements */}
+              <div className="absolute -z-10 top-8 left-8 w-full h-full rounded-xl border border-purple-200 dark:border-purple-900/30"></div>
+              <div className="absolute -z-10 top-4 left-4 w-full h-full rounded-xl border border-blue-200 dark:border-blue-900/30"></div>
+              
+              {/* Product preview */}
+              <div className="relative bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-xl aspect-[4/3] overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 h-full">
+                <div className="absolute top-0 left-0 right-0 h-12 bg-gray-100 dark:bg-slate-700 flex items-center px-4">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="mx-auto px-4 py-1 rounded-md bg-white/80 dark:bg-slate-800/80 text-xs font-mono">
+                    qwalo.ai/research-dashboard
+                  </div>
+                </div>
+                
+                <div className="p-6 pt-16">
+                  {/* Mock UI elements */}
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="bg-gray-100 dark:bg-slate-800 p-4 rounded-lg h-20"></div>
+                    <div className="bg-gray-100 dark:bg-slate-800 p-4 rounded-lg h-20"></div>
+                  </div>
+                  <div className="bg-gray-100 dark:bg-slate-800 p-4 rounded-lg h-40 mb-4"></div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-gray-100 dark:bg-slate-800 p-4 rounded-lg h-24"></div>
+                    <div className="col-span-2 bg-gray-100 dark:bg-slate-800 p-4 rounded-lg h-24"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-2 animate-fade-in animate-delay-300">
+          <div className="lg:col-span-2">
             <Tabs defaultValue="features" className="w-full" onValueChange={setActiveTab}>
-              <TabsList className="grid w-full grid-cols-3">
+              <TabsList className="grid w-full grid-cols-3 mb-8">
                 <TabsTrigger value="features">Features</TabsTrigger>
                 <TabsTrigger value="audience">Who It's For</TabsTrigger>
-                <TabsTrigger value="solution">Problem Solved</TabsTrigger>
+                <TabsTrigger value="solution">Problems Solved</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="features" className="mt-6 space-y-4">
+              <TabsContent value="features" className="space-y-6">
                 {features.map((feature, index) => (
-                  <div key={index} className="p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-white/50 dark:bg-gray-900/50 animate-fade-in hover:shadow-md transition-shadow duration-300" style={{ animationDelay: `${index * 100}ms` }}>
-                    <h3 className="text-lg font-medium mb-2 flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-qwalo-blue dark:text-qwalo-orange" />
+                  <div key={index} className="feature-card p-6" style={{ animationDelay: `${index * 100}ms` }}>
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-qwalo-orange" />
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground">{feature.description}</p>
@@ -72,60 +109,72 @@ export function ProductSection() {
                 ))}
               </TabsContent>
               
-              <TabsContent value="audience" className="mt-6">
-                <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg bg-white/50 dark:bg-gray-900/50 shadow-sm">
-                  <h3 className="text-xl font-medium mb-4">Who is Qwalo.ai for?</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <span className="text-qwalo-blue dark:text-qwalo-orange mt-1">•</span>
-                      <span><strong>Marketing Teams</strong> seeking deeper customer insights and feedback</span>
+              <TabsContent value="audience">
+                <div className="feature-card p-6">
+                  <h3 className="text-xl font-medium mb-5">Perfect for:</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <ArrowRight className="h-5 w-5 text-qwalo-orange mt-1 shrink-0" />
+                      <div>
+                        <h4 className="font-medium mb-1">Marketing Teams</h4>
+                        <p className="text-sm text-muted-foreground">Who need deeper customer insights to guide brand positioning and campaign development.</p>
+                      </div>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-qwalo-blue dark:text-qwalo-orange mt-1">•</span>
-                      <span><strong>Product Teams</strong> needing user research to guide development</span>
+                    <li className="flex items-start gap-3">
+                      <ArrowRight className="h-5 w-5 text-qwalo-orange mt-1 shrink-0" />
+                      <div>
+                        <h4 className="font-medium mb-1">Product Teams</h4>
+                        <p className="text-sm text-muted-foreground">Looking to understand user needs and validate concepts through qualitative feedback.</p>
+                      </div>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-qwalo-blue dark:text-qwalo-orange mt-1">•</span>
-                      <span><strong>Research Departments</strong> wanting to scale qualitative studies efficiently</span>
+                    <li className="flex items-start gap-3">
+                      <ArrowRight className="h-5 w-5 text-qwalo-orange mt-1 shrink-0" />
+                      <div>
+                        <h4 className="font-medium mb-1">Research Departments</h4>
+                        <p className="text-sm text-muted-foreground">Seeking to scale their qualitative methods while maintaining methodological rigor.</p>
+                      </div>
                     </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-qwalo-blue dark:text-qwalo-orange mt-1">•</span>
-                      <span><strong>Consultancies</strong> delivering insights to multiple clients</span>
+                    <li className="flex items-start gap-3">
+                      <ArrowRight className="h-5 w-5 text-qwalo-orange mt-1 shrink-0" />
+                      <div>
+                        <h4 className="font-medium mb-1">Strategy Consultants</h4>
+                        <p className="text-sm text-muted-foreground">Who need to deliver evidence-based recommendations backed by qualitative insights.</p>
+                      </div>
                     </li>
                   </ul>
                 </div>
               </TabsContent>
               
-              <TabsContent value="solution" className="mt-6">
-                <div className="p-6 border border-gray-200 dark:border-gray-800 rounded-lg bg-white/50 dark:bg-gray-900/50 shadow-sm">
-                  <h3 className="text-xl font-medium mb-4">What problems does Qwalo.ai solve?</h3>
+              <TabsContent value="solution">
+                <div className="feature-card p-6">
+                  <h3 className="text-xl font-medium mb-4">Problems We Solve:</h3>
                   
                   <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
-                      <AccordionTrigger>Time Efficiency</AccordionTrigger>
+                    <AccordionItem value="item-1" className="border-b border-gray-200 dark:border-gray-800">
+                      <AccordionTrigger className="hover:text-qwalo-orange">Efficiency Challenges</AccordionTrigger>
                       <AccordionContent>
-                        Reduces research time from weeks to days by automating interviews, transcription, and preliminary analysis.
+                        Our AI-powered platform reduces research cycles from weeks to days by automating interview processes, transcription, and preliminary analysis.
                       </AccordionContent>
                     </AccordionItem>
                     
-                    <AccordionItem value="item-2">
-                      <AccordionTrigger>Data Quality</AccordionTrigger>
+                    <AccordionItem value="item-2" className="border-b border-gray-200 dark:border-gray-800">
+                      <AccordionTrigger className="hover:text-qwalo-orange">Inconsistent Qualitative Analysis</AccordionTrigger>
                       <AccordionContent>
-                        Standardizes interview approaches while maintaining the flexibility to explore unexpected insights, improving data consistency and quality.
+                        We standardize qualitative analysis while preserving the ability to explore unexpected insights, ensuring consistent high-quality results.
                       </AccordionContent>
                     </AccordionItem>
                     
-                    <AccordionItem value="item-3">
-                      <AccordionTrigger>Analysis Depth</AccordionTrigger>
+                    <AccordionItem value="item-3" className="border-b border-gray-200 dark:border-gray-800">
+                      <AccordionTrigger className="hover:text-qwalo-orange">Insight Discovery</AccordionTrigger>
                       <AccordionContent>
-                        Identifies patterns and connections that human analysis might miss, giving your research unprecedented depth.
+                        Our system uncovers patterns and connections that human analysis might overlook, providing deeper insights from your qualitative data.
                       </AccordionContent>
                     </AccordionItem>
                     
                     <AccordionItem value="item-4">
-                      <AccordionTrigger>Decision Making</AccordionTrigger>
+                      <AccordionTrigger className="hover:text-qwalo-orange">Action Translation</AccordionTrigger>
                       <AccordionContent>
-                        Transforms raw qualitative data into actionable insights that directly inform business strategy and product decisions.
+                        We bridge the gap between raw qualitative data and actionable business strategy with clear, practical recommendations.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>

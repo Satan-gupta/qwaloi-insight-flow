@@ -74,7 +74,7 @@ export function Navbar() {
             </a>
           ))}
           <ThemeToggle />
-          <WaitlistDialog buttonVariant="default" buttonText="Join the Waitlist" className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
+          <WaitlistDialog className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -121,11 +121,7 @@ export function Navbar() {
                     {link.name}
                   </a>
                 ))}
-                <WaitlistDialog 
-                  buttonVariant="default" 
-                  buttonText="Join the Waitlist" 
-                  className="mt-6 bg-qwalo-orange hover:bg-qwalo-orange/90 text-white w-full"
-                />
+                <WaitlistDialog className="mt-6 bg-qwalo-orange hover:bg-qwalo-orange/90 text-white w-full" />
               </nav>
             </div>
           </div>

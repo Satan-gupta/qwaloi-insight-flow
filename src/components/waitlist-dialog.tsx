@@ -16,9 +16,10 @@ import { useToast } from "@/hooks/use-toast";
 interface WaitlistDialogProps {
   trigger?: React.ReactNode;
   className?: string;
+  buttonText?: string;
 }
 
-export function WaitlistDialog({ trigger, className }: WaitlistDialogProps) {
+export function WaitlistDialog({ trigger, className, buttonText = "Join the Waitlist" }: WaitlistDialogProps) {
   const [email, setEmail] = useState("");
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -43,8 +44,8 @@ export function WaitlistDialog({ trigger, className }: WaitlistDialogProps) {
   };
 
   const defaultTrigger = (
-    <Button className={`bg-qwalo-orange hover:bg-qwalo-orange/90 text-white ${className}`}>
-      Join the Waitlist
+    <Button className={className}>
+      {buttonText}
     </Button>
   );
 

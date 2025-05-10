@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { WaitlistDialog } from "./waitlist-dialog";
+import { Send, Twitter, Linkedin, Instagram } from "lucide-react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -40,53 +41,69 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-gray-50 dark:bg-slate-900/50">
+    <section id="contact" className="bg-gray-50 dark:bg-slate-900/50 py-20">
       <div className="container section-padding">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-qwalo-blue to-qwalo-orange mx-auto mb-8 rounded-full"></div>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="animate-fade-in">
             <p className="text-lg text-muted-foreground mb-8">
               Have questions about Qwalo.ai or want to learn more? Reach out to our team or join the waitlist to stay updated.
             </p>
             
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="flex flex-col gap-2">
                 <h3 className="text-xl font-medium">Subscribe for Updates</h3>
                 <p className="text-muted-foreground">
                   Be the first to know when we launch by joining our waitlist.
                 </p>
-                <div className="mt-2">
+                <div className="mt-4">
                   <WaitlistDialog className="w-full sm:w-auto" />
                 </div>
               </div>
               
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 <h3 className="text-xl font-medium">Follow Us</h3>
                 <p className="text-muted-foreground">
                   Stay connected with us on social media.
                 </p>
-                <div className="flex gap-4 mt-2">
-                  <a href="#" className="text-gray-500 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                <div className="flex gap-4 mt-3">
+                  <a 
+                    href="#" 
+                    className="text-gray-500 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-500 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  <a 
+                    href="#" 
+                    className="text-gray-500 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
                   </a>
-                  <a href="#" className="text-gray-500 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  <a 
+                    href="#" 
+                    className="text-gray-500 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
-            <form onSubmit={handleSubmit} className="glass-card p-6 space-y-6">
+          <div className="animate-fade-in animate-delay-300">
+            <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8 space-y-6 shadow-lg border border-gray-200 dark:border-gray-800">
               <h3 className="text-xl font-medium mb-4">Send us a Message</h3>
               
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name
                   </label>
                   <Input
@@ -101,7 +118,7 @@ export function ContactSection() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email
                   </label>
                   <Input
@@ -117,7 +134,7 @@ export function ContactSection() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
                     Message
                   </label>
                   <Textarea
@@ -138,6 +155,7 @@ export function ContactSection() {
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Send Message"}
+                <Send className="h-4 w-4 ml-2" />
               </Button>
             </form>
           </div>

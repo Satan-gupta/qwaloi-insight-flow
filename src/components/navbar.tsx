@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
 import { Dialog } from "@/components/ui/dialog";
+import { WaitlistDialog } from "./waitlist-dialog";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,12 +26,29 @@ export function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    
+    // Smooth scroll with offset for fixed header
+    const element = document.querySelector(href);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm py-4" 
-          : "bg-transparent py-6"
+          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm py-3" 
+          : "bg-transparent py-5"
       }`}
     >
       <div className="container flex items-center justify-between">
@@ -46,15 +64,17 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(link.href);
+              }}
               className="text-sm font-medium text-foreground/80 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors"
             >
               {link.name}
             </a>
           ))}
           <ThemeToggle />
-          <Button className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white">
-            Join the Waitlist
-          </Button>
+          <WaitlistDialog buttonVariant="default" buttonText="Join the Waitlist" className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
         </nav>
 
         {/* Mobile Menu Button */}
@@ -74,7 +94,7 @@ export function Navbar() {
         <Dialog open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <div className="fixed inset-0 z-50 bg-background">
             <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between p-6">
+              <div className="flex items-center justify-between p-6 border-b border-border">
                 <span className="text-2xl font-bold bg-gradient-to-r from-qwalo-blue to-qwalo-orange bg-clip-text text-transparent">
                   Qwalo.ai
                 </span>
@@ -92,18 +112,20 @@ export function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-lg font-medium text-foreground/80 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-lg font-medium text-foreground/80 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors py-2"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
                   >
                     {link.name}
                   </a>
                 ))}
-                <Button 
-                  className="mt-6 bg-qwalo-orange hover:bg-qwalo-orange/90 text-white"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Join the Waitlist
-                </Button>
+                <WaitlistDialog 
+                  buttonVariant="default" 
+                  buttonText="Join the Waitlist" 
+                  className="mt-6 bg-qwalo-orange hover:bg-qwalo-orange/90 text-white w-full"
+                />
               </nav>
             </div>
           </div>

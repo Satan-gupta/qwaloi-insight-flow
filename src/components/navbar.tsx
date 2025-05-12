@@ -12,7 +12,7 @@ export function Navbar() {
   
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 100);
     };
     
     window.addEventListener("scroll", handleScroll);
@@ -45,7 +45,7 @@ export function Navbar() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
           ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm py-3" 
           : "bg-transparent py-5"
@@ -59,7 +59,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className={`hidden md:flex items-center gap-8 ${isScrolled ? '' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}>
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -76,6 +76,18 @@ export function Navbar() {
           <ThemeToggle />
           <WaitlistDialog className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
         </nav>
+
+        {/* Floating Menu Button - Only visible when not scrolled */}
+        <div className={`hidden md:flex items-center gap-4 ${isScrolled ? 'opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
+          <Button 
+            variant="outline" 
+            onClick={() => setIsScrolled(true)}
+            className="rounded-full bg-white/20 backdrop-blur-sm border-white/10 hover:bg-white/30"
+            aria-label="View menu"
+          >
+            Menu
+          </Button>
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-4">

@@ -1,6 +1,5 @@
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
 import { AboutSection } from "@/components/about-section";
 import { ProductSection } from "@/components/product-section";
@@ -11,7 +10,6 @@ const Index = () => {
   return (
     <ThemeProvider defaultTheme="light">
       <div className="min-h-screen flex flex-col">
-        <Navbar />
         <main className="flex-grow">
           <HeroSection />
           <AboutSection />

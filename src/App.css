@@ -184,29 +184,13 @@ p {
   line-height: 1.6;
 }
 
-/* Navigation Bar Fade In/Out Effect */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nav-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-/* Offset for fixed header */
+/* Remove navbar-specific styles */
+/* Section padding adjusted since we no longer need to account for fixed navbar */
 .section-padding {
-  padding-top: 120px;
+  padding-top: 60px;
 }
 
-/* Margin to compensate for fixed header */
+/* Adjust scroll margin since we no longer have a navbar */
 section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 20px;
 }
-

@@ -51,7 +51,7 @@ export function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-8 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
           <span className="text-2xl font-bold bg-gradient-to-r from-qwalo-blue to-qwalo-orange bg-clip-text text-transparent">
             Qwalo.ai

@@ -18,26 +18,19 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-950">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white/20 to-transparent dark:from-slate-900/20 pointer-events-none"></div>
-      <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-blue-500/5 dark:bg-blue-500/10 blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-orange-500/5 dark:bg-orange-500/10 blur-3xl pointer-events-none"></div>
-      
-      <div className="container section-padding relative z-10">
-        <div className="mb-16 text-center">
-          <div className="inline-block">
-            <span className="inline-block py-1 px-3 text-sm font-medium rounded-full bg-blue-100 text-qwalo-blue dark:bg-blue-900/30 dark:text-blue-300 mb-4">
-              Our Vision
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Transforming Qualitative Research</h2>
+    <section id="about" className="relative py-24 overflow-hidden bg-white dark:bg-slate-900">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-8">
+        <div className="max-w-3xl mx-auto mb-16 text-center">
+          <span className="inline-block py-1 px-3 text-sm font-medium rounded-full bg-blue-100 text-qwalo-blue dark:bg-blue-900/30 dark:text-blue-300 mb-4">
+            Our Vision
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Transforming Qualitative Research</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-qwalo-blue to-qwalo-orange mx-auto mb-8 rounded-full"></div>
         </div>
       
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           <div className="relative">
-            <div className="absolute -z-10 -top-10 -left-10 w-full h-full rounded-2xl border border-blue-200 dark:border-blue-900/30"></div>
+            <div className="absolute -z-10 -top-6 -left-6 w-full h-full rounded-2xl border border-blue-200 dark:border-blue-900/30"></div>
             <div className="relative bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl">
               <h3 className="text-2xl font-semibold mb-6">About Qwalo.ai</h3>
               <p className="text-lg text-muted-foreground mb-6">
@@ -49,7 +42,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-6">Our Core Values</h3>
             {values.map((value, index) => (
               <div 

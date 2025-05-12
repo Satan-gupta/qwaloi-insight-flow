@@ -33,20 +33,13 @@ export function ProductSection() {
   ];
 
   return (
-    <section id="product" className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-      {/* Abstract shapes */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-qwalo-blue to-transparent opacity-30"></div>
-      <div className="absolute right-0 top-40 w-96 h-96 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute left-0 bottom-40 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
-      
-      <div className="container section-padding relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block mb-4">
-            <span className="inline-block py-1 px-3 text-sm font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
-              Our Platform
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Discover Qwalo.ai</h2>
+    <section id="product" className="relative py-24 bg-gray-50 dark:bg-slate-900/50">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-block py-1 px-3 text-sm font-medium rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 mb-4">
+            Our Platform
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Discover Qwalo.ai</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-purple-600 to-qwalo-orange mx-auto mb-8 rounded-full"></div>
           <p className="text-lg text-muted-foreground">
             Our innovative platform transforms qualitative research from an art form into a precise science without losing the human touch.
@@ -55,13 +48,9 @@ export function ProductSection() {
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-stretch">
           <div className="lg:col-span-3">
-            <div className="relative h-full">
-              {/* Decorative elements */}
-              <div className="absolute -z-10 top-8 left-8 w-full h-full rounded-xl border border-purple-200 dark:border-purple-900/30"></div>
-              <div className="absolute -z-10 top-4 left-4 w-full h-full rounded-xl border border-blue-200 dark:border-blue-900/30"></div>
-              
+            <div className="relative">
               {/* Product preview */}
-              <div className="relative bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-xl aspect-[4/3] overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 h-full">
+              <div className="relative bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 rounded-xl aspect-[4/3] overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
                 <div className="absolute top-0 left-0 right-0 h-12 bg-gray-100 dark:bg-slate-700 flex items-center px-4">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-full bg-red-400"></div>

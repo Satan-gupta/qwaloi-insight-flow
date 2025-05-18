@@ -60,12 +60,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(155, 155, 155, 0.5);
+  background-color: rgba(0, 105, 220, 0.3);
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(155, 155, 155, 0.7);
+  background-color: rgba(0, 105, 220, 0.5);
 }
 
 /* Custom animation for hero elements */
@@ -149,16 +149,16 @@
 
 /* Custom property for accent color */
 :root {
-  --qwalo-accent: rgba(249, 115, 22, 0.7);
+  --qwalo-accent: rgba(255, 122, 0, 0.7);
 }
 
 .dark {
-  --qwalo-accent: rgba(249, 115, 22, 0.7);
+  --qwalo-accent: rgba(255, 122, 0, 0.7);
 }
 
 /* Animated gradient background */
 .animated-gradient {
-  background: linear-gradient(-45deg, #1E40AF10, #F9731610, #30579910, #DA732C10);
+  background: linear-gradient(-45deg, #0069DC10, #FF7A0010, #0035A510, #FF9E4410);
   background-size: 400% 400%;
   animation: gradientFlow 15s ease infinite;
 }
@@ -184,8 +184,7 @@ p {
   line-height: 1.6;
 }
 
-/* Remove navbar-specific styles */
-/* Section padding adjusted since we no longer need to account for fixed navbar */
+/* Section padding adjusted since we no longer have a fixed navbar */
 .section-padding {
   padding-top: 60px;
 }
@@ -193,4 +192,38 @@ p {
 /* Adjust scroll margin since we no longer have a navbar */
 section[id] {
   scroll-margin-top: 20px;
+}
+
+/* New theme-specific styles */
+.qwalo-section {
+  background-color: #E0F2FF;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 105, 220, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 122, 0, 0.05) 0%, transparent 20%);
+}
+
+.qwalo-header-gradient {
+  background: linear-gradient(135deg, #0069DC 0%, #002351 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.qwalo-card-gradient {
+  background: linear-gradient(135deg, rgba(0, 105, 220, 0.03) 0%, rgba(0, 35, 81, 0.03) 100%);
+}
+
+/* Blue to orange gradients */
+.qwalo-gradient-text {
+  background: linear-gradient(to right, #0069DC, #FF7A00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Orange accent for highlights */
+.qwalo-highlight {
+  @apply border-l-4 border-qwalo-orange pl-3;
 }

@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Tabs,
@@ -67,29 +66,29 @@ const insightItems = [
   {
     title: "Voice of Customer",
     description: "87% of customers mentioned ease of use as their top priority",
-    icon: <Sparkles className="h-6 w-6 text-purple-500" />,
-    color: "bg-purple-100 dark:bg-purple-900/30"
+    icon: <Sparkles className="h-6 w-6 text-qwalo-orange" />,
+    color: "bg-orange-50 dark:bg-orange-900/30"
   },
   {
     title: "Competitor Analysis",
     description: "Your product rated 32% higher on user satisfaction than competitors",
-    icon: <BarChartIcon className="h-6 w-6 text-blue-500" />,
-    color: "bg-blue-100 dark:bg-blue-900/30"
+    icon: <BarChartIcon className="h-6 w-6 text-qwalo-blue" />,
+    color: "bg-blue-50 dark:bg-blue-900/30"
   },
   {
     title: "Market Trend",
     description: "Growing demand (28% YoY) for seamless integration capabilities",
-    icon: <Wand className="h-6 w-6 text-amber-500" />,
-    color: "bg-amber-100 dark:bg-amber-900/30"
+    icon: <Wand className="h-6 w-6 text-qwalo-blue" />,
+    color: "bg-blue-50 dark:bg-blue-900/30"
   },
 ];
 
 export function DashboardSection() {
   return (
-    <section id="dashboard" className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+    <section id="dashboard" className="py-16 md:py-24 bg-gradient-to-b from-qwalo-lightblue to-white dark:from-qwalo-darkblue dark:to-slate-800 pattern-wave">
       <div className="container px-4 md:px-8 lg:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 dark:from-blue-400 dark:to-violet-400">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-qwalo-blue to-qwalo-orange dark:from-blue-400 dark:to-orange-400">
             Research Intelligence Dashboard
           </h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -103,10 +102,10 @@ export function DashboardSection() {
             {/* Dashboard View 1: Research Process */}
             <CarouselItem>
               <div className="p-1">
-                <div className="glass-card p-6 md:p-8 border-t-4 border-blue-500 dark:border-blue-400">
+                <div className="glass-card p-6 md:p-8 border-t-4 border-qwalo-blue dark:border-qwalo-blue">
                   <h3 className="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2">
-                    <span className="bg-blue-100 dark:bg-blue-900/30 p-2 rounded-full">
-                      <Search className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    <span className="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-full">
+                      <Search className="h-5 w-5 text-qwalo-blue dark:text-blue-400" />
                     </span>
                     Research Workflow
                   </h3>

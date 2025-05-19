@@ -47,6 +47,9 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme);
+    
+    // Set a data attribute for easier CSS targeting
+    root.setAttribute('data-theme', theme);
   }, [theme]);
 
   const value = {

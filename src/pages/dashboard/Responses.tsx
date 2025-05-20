@@ -280,7 +280,7 @@ const ResponsesPage = () => {
                   <SelectValue placeholder="Age Group" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Ages</SelectItem>
+                  <SelectItem value="all-ages">All Ages</SelectItem>
                   {uniqueAges.map((age) => (
                     <SelectItem key={age} value={age}>
                       {age}
@@ -294,7 +294,7 @@ const ResponsesPage = () => {
                   <SelectValue placeholder="Gender" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Genders</SelectItem>
+                  <SelectItem value="all-genders">All Genders</SelectItem>
                   {uniqueGenders.map((gender) => (
                     <SelectItem key={gender} value={gender}>
                       {gender}
@@ -308,7 +308,7 @@ const ResponsesPage = () => {
                   <SelectValue placeholder="City" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Cities</SelectItem>
+                  <SelectItem value="all-cities">All Cities</SelectItem>
                   {uniqueCities.map((city) => (
                     <SelectItem key={city} value={city}>
                       {city}
@@ -322,7 +322,7 @@ const ResponsesPage = () => {
                   <SelectValue placeholder="Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Statuses</SelectItem>
+                  <SelectItem value="all-statuses">All Statuses</SelectItem>
                   {uniqueStatuses.map((status) => (
                     <SelectItem key={status} value={status}>
                       {status}

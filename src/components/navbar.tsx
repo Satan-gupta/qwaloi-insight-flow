@@ -60,7 +60,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className={`hidden md:flex items-center gap-8 ${isScrolled ? '' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}>
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -74,23 +74,13 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
-          <ThemeToggle />
-          <DashboardGateway />
-          <WaitlistDialog className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
+          
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <DashboardGateway />
+            <WaitlistDialog className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
+          </div>
         </nav>
-
-        {/* Floating Menu Button - Only visible when not scrolled */}
-        <div className={`hidden md:flex items-center gap-4 ${isScrolled ? 'opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
-          <DashboardGateway />
-          <Button 
-            variant="outline" 
-            onClick={() => setIsScrolled(true)}
-            className="rounded-full bg-white/20 backdrop-blur-sm border-white/10 hover:bg-white/30"
-            aria-label="View menu"
-          >
-            Menu
-          </Button>
-        </div>
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-4">

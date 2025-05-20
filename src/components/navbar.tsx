@@ -7,7 +7,12 @@ import { Dialog } from "@/components/ui/dialog";
 import { WaitlistDialog } from "./waitlist-dialog";
 import { DashboardGateway } from "./dashboard-gateway";
 
-export function Navbar() {
+interface NavbarProps {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+export function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -21,27 +26,15 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Product", href: "#product" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", value: "home" },
+    { name: "About", value: "about" },
+    { name: "Product", value: "product" },
+    { name: "Contact", value: "contact" },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (value: string) => {
     setMobileMenuOpen(false);
-    
-    // Smooth scroll with offset for fixed header
-    const element = document.querySelector(href);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
+    setActiveTab(value);
   };
 
   return (
@@ -53,44 +46,21 @@ export function Navbar() {
       }`}
     >
       <div className="container max-w-screen-xl mx-auto px-4 md:px-8 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
+        <a 
+          onClick={() => setActiveTab("home")} 
+          className="flex items-center gap-2 cursor-pointer"
+        >
           <span className="text-2xl font-bold bg-gradient-to-r from-qwalo-blue to-qwalo-orange bg-clip-text text-transparent">
             Qwalo.ai
           </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className={`hidden md:flex items-center gap-8 ${isScrolled ? '' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}>
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
-              }}
-              className="text-sm font-medium text-foreground/80 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+        {/* Always visible navigation */}
+        <nav className="hidden md:flex items-center gap-8">
           <ThemeToggle />
           <DashboardGateway />
           <WaitlistDialog className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
         </nav>
-
-        {/* Floating Menu Button - Only visible when not scrolled */}
-        <div className={`hidden md:flex items-center gap-4 ${isScrolled ? 'opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
-          <DashboardGateway />
-          <Button 
-            variant="outline" 
-            onClick={() => setIsScrolled(true)}
-            className="rounded-full bg-white/20 backdrop-blur-sm border-white/10 hover:bg-white/30"
-            aria-label="View menu"
-          >
-            Menu
-          </Button>
-        </div>
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-4">
@@ -127,12 +97,8 @@ export function Navbar() {
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
-                    href={link.href}
-                    className="text-lg font-medium text-foreground/80 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors py-2"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }}
+                    className="text-lg font-medium text-foreground/80 hover:text-qwalo-blue dark:hover:text-qwalo-orange transition-colors py-2 cursor-pointer"
+                    onClick={() => handleNavClick(link.value)}
                   >
                     {link.name}
                   </a>

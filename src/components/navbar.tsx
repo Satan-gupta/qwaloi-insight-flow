@@ -5,6 +5,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
 import { Dialog } from "@/components/ui/dialog";
 import { WaitlistDialog } from "./waitlist-dialog";
+import { DashboardGateway } from "./dashboard-gateway";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,11 +75,13 @@ export function Navbar() {
             </a>
           ))}
           <ThemeToggle />
+          <DashboardGateway />
           <WaitlistDialog className="bg-qwalo-orange hover:bg-qwalo-orange/90 text-white" />
         </nav>
 
         {/* Floating Menu Button - Only visible when not scrolled */}
         <div className={`hidden md:flex items-center gap-4 ${isScrolled ? 'opacity-0 pointer-events-none' : ''} transition-opacity duration-500`}>
+          <DashboardGateway />
           <Button 
             variant="outline" 
             onClick={() => setIsScrolled(true)}
@@ -92,6 +95,7 @@ export function Navbar() {
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-4">
           <ThemeToggle />
+          <DashboardGateway />
           <Button 
             variant="ghost" 
             size="icon" 
@@ -133,6 +137,7 @@ export function Navbar() {
                     {link.name}
                   </a>
                 ))}
+                <DashboardGateway />
                 <WaitlistDialog className="mt-6 bg-qwalo-orange hover:bg-qwalo-orange/90 text-white w-full" />
               </nav>
             </div>

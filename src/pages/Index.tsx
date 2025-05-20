@@ -6,11 +6,13 @@ import { ProductSection } from "@/components/product-section";
 import { ContactSection } from "@/components/contact-section";
 import { DashboardSection } from "@/components/dashboard-section";
 import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
 
 const Index = () => {
   return (
     <ThemeProvider defaultTheme="light">
       <div className="min-h-screen flex flex-col">
+        <Navbar />
         <main className="flex-grow">
           <HeroSection />
           <AboutSection />
